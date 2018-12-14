@@ -1,12 +1,13 @@
 import React, { PropTypes, Component } from 'react';
 import Header from '../components/common/Header';
+import { connect } from 'react-redux';
 
 class App extends Component {
     render () {
         const { children } = this.props;
         return (
             <div className="container-fluid">
-            <Header />
+            <Header loading={this.props.loading} />
                 {children}
             </div>
         );
@@ -14,7 +15,14 @@ class App extends Component {
 }
 
 App.propTypes = {
-    children: PropTypes.object.isRequired
+    children: PropTypes.object.isRequired, 
+    loading: PropTypes.bool.isRequired
 };
 
-export default App;
+function mapStateToProps(state, ownProps) {
+    return {
+        loading: state.ajaxCallsInProgress > 0
+    };
+}
+
+export default connect(mapStateToProps)(App);
