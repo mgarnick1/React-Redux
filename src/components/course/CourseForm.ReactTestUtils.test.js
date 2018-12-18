@@ -7,7 +7,7 @@ function setup(saving) {
     let props = {
         course: {}, saving: saving, errors: {},
         onSave: () => {},
-        onChange: () => {},
+        onChange: () => {}
     };
 
     let renderer = TestUtils.createRenderer();
@@ -37,5 +37,5 @@ describe('CourseForm via React Test Utils', () => {
         const { output } = setup(true);
         const submitButton = output.props.children[5];
         expect(submitButton.props.value).toBe('Saving...');
-    })
+    });
 });
