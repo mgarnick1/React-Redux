@@ -22,7 +22,7 @@ describe('Course Reducer', () => {
 
     it('should update course when passed UPDATE_COURSE_SUCCESS', () => {
         const initialState = [
-            {id: 'A', title: 'A', },
+            {id: 'A', title: 'A'},
             {id: 'B', title: 'B'},
             {id: 'C', title: 'C'}
         ];
